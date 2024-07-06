@@ -6,7 +6,8 @@ export default function CreateBook() {
   const [bookId, setBookID] = useState("");
   const [bookName, setBookName] = useState("");
   const [bookPrice, setBookPrice] = useState("");
-
+  const url = "https://crud-dyoh.onrender.com";
+  // const url = 'http://localhost:5000'
   const handleClick = async (e) => {
     e.preventDefault();
     const data = {
@@ -14,12 +15,10 @@ export default function CreateBook() {
       name: bookName,
       Price: bookPrice,
     };
-    const response = await axios
-      .post("http://localhost:5000/create", data)
-      .then((res) => {
-        console.log(res);
-        alert(res.data.message);
-      });
+    const response = await axios.post(`${url}/create`, data).then((res) => {
+      console.log(res);
+      alert(res.data.message);
+    });
   };
 
   return (

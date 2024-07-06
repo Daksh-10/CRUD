@@ -2,6 +2,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 
+const url = "https://crud-dyoh.onrender.com";
+// const url = 'http://localhost:5000'
+
 export default function UpdateBook() {
   const [bookId, setBookID] = useState("");
   const [bookName, setBookName] = useState("");
@@ -15,7 +18,7 @@ export default function UpdateBook() {
       Price: bookPrice,
     };
     const response = await axios
-      .put(`http://localhost:5000/update/${bookId}`, data)
+      .put(`${url}/update/${bookId}`, data)
       .then((res) => {
         console.log(res);
         alert(res.data.message);

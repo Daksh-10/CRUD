@@ -2,6 +2,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 
+const url = "https://crud-dyoh.onrender.com";
+// const url = 'http://localhost:5000'
+
 export default function DeleteBook() {
   const [bookId, setBookID] = useState("");
 
@@ -11,7 +14,7 @@ export default function DeleteBook() {
       id: bookId,
     };
     const response = await axios
-      .delete(`http://localhost:5000/delete/${bookId}`, data)
+      .delete(`${url}/${bookId}`, data)
       .then((res) => {
         console.log(res);
         alert(res.data.message);
